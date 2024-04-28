@@ -1,17 +1,22 @@
 import os
 import time
 import datetime
+import sys
 
 # Routine to interrogate a folder and create a .csv file listing all folders and files
 # includes filename, date, size in megabytes.
 # also lists total size of files in each folder.
 
-# Attempting version that is automated by working in the current directory.
+# Attempting version that reads in  a parameter for folder path to be interrogated during programme call.
 
 # misreads the names  for certain folders or files if I have back slashes in the path so I am using forward slashes
 Today = datetime.datetime.today().strftime('%Y-%m-%d-%H%M')
 CurrentDirectory = os.getcwd()
-Interrogate = CurrentDirectory
+if len( sys.argv ) > 1:
+    Interrogate = sys.argv[1]
+else:
+    Interrogate = CurrentDirectory
+print (f"You are interrogating the folder {Interrogate}")
 ResultsFile = f'{CurrentDirectory}/FileListing-{Today}.csv'
 FailureList = f'{CurrentDirectory}/FileListing-fails-{Today}.csv'
 #interrogate = 'T:/projects/Twenty-07/ResearchAudit/DataforCollaborators'
