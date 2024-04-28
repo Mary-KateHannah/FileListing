@@ -8,7 +8,8 @@ import sys
 # also lists total size of files in each folder.
 
 # Attempting version that reads in  a parameter for folder path to be interrogated during programme call.
-
+# Adding second parameter for output folder path
+# For now, input and output paths need to be enclosed in quotes in cases spaces in folder names
 # misreads the names  for certain folders or files if I have back slashes in the path so I am using forward slashes
 Today = datetime.datetime.today().strftime('%Y-%m-%d-%H%M')
 CurrentDirectory = os.getcwd()
@@ -17,8 +18,13 @@ if len( sys.argv ) > 1:
 else:
     Interrogate = CurrentDirectory
 print (f"You are interrogating the folder {Interrogate}")
-ResultsFile = f'{CurrentDirectory}/FileListing-{Today}.csv'
-FailureList = f'{CurrentDirectory}/FileListing-fails-{Today}.csv'
+if len( sys.argv ) > 2:
+    ResultsFolder = sys.argv[2]
+else:
+    ResultsFolder = CurrentDirectory
+print (f"You are writing results to the folder {ResultsFolder}")
+ResultsFile = f'{ResultsFolder}/FileListing-{Today}.csv'
+FailureList = f'{ResultsFolder}/FileListing-fails-{Today}.csv'
 #interrogate = 'T:/projects/Twenty-07/ResearchAudit/DataforCollaborators'
 #resultsfile = 'R:/Mary-Kate/Python/DataForCollaborators_FileList_2021_04_16.csv'
 
