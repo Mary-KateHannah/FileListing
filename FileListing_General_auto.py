@@ -87,7 +87,13 @@ ResultsList.append (BlankLineFormatted)
 ResultsList.append (f'Total size of files within this archive: ,,,{ArchiveMB:8.2f} MB,,,,')
 with open(ResultsFile, 'w') as f:
     for item in ResultsList:
-        f.write("%s\n" % item)
+        try:
+            f.write("%s\n" % item)
+        except:
+            f.write("%s\n" "FILENAMEERROR")
+            print ('Problem writing filename to FileListing')
+        continue
+
 if BadFileList:
     print (f'Check the date error or size error for the files listed in: \n {FailureList}')
     with open(FailureList, 'w') as f:
