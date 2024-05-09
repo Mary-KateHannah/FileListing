@@ -85,7 +85,7 @@ print ('')
 print (f'Writing results to {ResultsFile}')    
 ResultsList.append (BlankLineFormatted)
 ResultsList.append (f'Total size of files within this archive: ,,,{ArchiveMB:8.2f} MB,,,,')
-with open(ResultsFile, 'w') as f:
+with open(ResultsFile, 'w', encoding='UTF-8') as f:
     for item in ResultsList:
         try:
             f.write("%s\n" % item)
