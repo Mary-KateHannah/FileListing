@@ -23,8 +23,10 @@ if len( sys.argv ) > 2:
 else:
     ResultsFolder = CurrentDirectory
 print (f"You are writing results to the folder {ResultsFolder}")
-ResultsFile = f'{ResultsFolder}/FileListing-{Today}.csv'
-FailureList = f'{ResultsFolder}/FileListing-fails-{Today}.csv'
+# Adding name of top level folder into output filename
+TopFolder = os.path.basename(Interrogate)
+ResultsFile = f'{ResultsFolder}/FileListing-{TopFolder}-{Today}.csv'
+FailureList = f'{ResultsFolder}/FileListing-fails-{TopFolder}-{Today}.csv'
 #interrogate = 'T:/projects/Twenty-07/ResearchAudit/DataforCollaborators'
 #resultsfile = 'R:/Mary-Kate/Python/DataForCollaborators_FileList_2021_04_16.csv'
 
