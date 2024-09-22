@@ -34,6 +34,8 @@ DummyDate = datetime.date.isoformat(datetime.datetime(2021, 4, 1))
 DefaultFileSize = 1
 DateError = 0
 SizeError = 0
+#adding initialisation of FolderMB for cases where it does not get initialised below in the loop - where no subdirectories
+FolderMB = 0
 BadFileList = []
 ResultsList = []
 #function to obtain the date in the format I need which is YYYY-MM-DD.
